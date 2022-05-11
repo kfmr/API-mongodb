@@ -1,10 +1,10 @@
 import express from "express";
 import db from "./config/dbConnect.js";
 import routes from './Routes/index.js'
-db.on("error", console.log.bind(console, "erro de conexão"))
 
+// db.on("error", console.log.bind(console, "erro de conexão"))
 
-db.once("open", () => console.log("conexão estabelecida"))
+// db.once("open", () => console.log("conexão estabelecida"))
 
 
 
