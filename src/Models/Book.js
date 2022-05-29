@@ -9,7 +9,8 @@ const BookSchema = new mongoose.Schema({
         required: true
     },
     author: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Author",
         required: true
     },
     editor: {
@@ -19,7 +20,12 @@ const BookSchema = new mongoose.Schema({
     pages: {
         type: Number,
         required: false
+    },
+    genre: {
+        type: String,
+        required: true
     }
+
 })
 
 const Books = mongoose.model('Books', BookSchema)

@@ -15,8 +15,18 @@ class AuthorController {
 
         try {
             const id = req.params.id
-            const result = await AuthorSchema.findById(id)
-            res.status(200).json(result)
+            AuthorSchema.findById(id, (error, result) => {
+                if (error || !result) {
+                    res.status(404).send({
+                        message: "not found"
+                    })
+
+                } else {
+                    res.status(200).json(result)
+                }
+
+            })
+
 
         } catch (err) {
             res.status(400).end()
